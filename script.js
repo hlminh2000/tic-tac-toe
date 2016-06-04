@@ -2,8 +2,10 @@ window.addEventListener('load', () => {
 
   let cell_set = document.getElementsByClassName('cell');
 
-  let circle = "<img src=\"http://s12.postimg.org/r0p6cequ1/circle.png\" class=\"piece circle\">"
-  let x_mark = "<img src=\"http://s12.postimg.org/lb8xs3knt/image.png\" class=\"piece x_mark\">"
+  let circle = "<img src=\"Assets/circle.png\" class=\"piece circle\">"
+  let x_mark = "<img src=\"Assets/image.png\" class=\"piece x_mark\">"
+  // let circle = "<img src=\"http://s12.postimg.org/r0p6cequ1/circle.png\" class=\"piece circle\">"
+  // let x_mark = "<img src=\"http://s12.postimg.org/lb8xs3knt/image.png\" class=\"piece x_mark\">"
 
   var user_piece = circle;
   var ai_piece = x_mark;
