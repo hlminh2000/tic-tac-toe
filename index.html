@@ -1,0 +1,42 @@
+
+<head>
+  <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
+  <script type="text/javascript" src="script.js"></script>
+</head>
+
+<html>
+  <body class="flex flex-center flex-middle">
+
+    <div class="board flex flex-center flex-middle flex-column">
+      <div class="flex flex-row full-width flex-1">
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="-1,1"></div>
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="0,1"></div>
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="1,1"></div>
+      </div>
+      <div class="flex flex-row full-width flex-1">
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="-1,0"></div>
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="0,0"></div>
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="1,0"></div>
+      </div>
+      <div class="flex flex-row full-width flex-1">
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="-1,-1"></div>
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="0,-1"></div>
+        <div class="cell flex flex-1 flex-center flex-middle pointer" id="1,-1"></div>
+      </div>
+    </div>
+
+    <div class="reflection board flex flex-center flex-middle flex-column">
+      <div class="flex flex-row full-width flex-1">
+        <div class="cell-reflection flex flex-1 flex-center flex-middle pointer" id="-1,-1"></div>
+        <div class="cell-reflection flex flex-1 flex-center flex-middle pointer" id="0,-1"></div>
+        <div class="cell-reflection flex flex-1 flex-center flex-middle pointer" id="1,-1"></div>
+      </div>
+      <div class="mask"></div>
+    </div>
+
+    <div class="result ">
+
+    </div>
+
+  </body>
+</html>
