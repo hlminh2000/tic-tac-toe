@@ -2,30 +2,30 @@ window.addEventListener('load', () => {
 
   let cell_set = document.getElementsByClassName('cell');
 
+  let x_select = document.getElementById('x_select');
+  let circle_select = document.getElementById('circle_select');
+  let piece_select = document.getElementsByClassName('piece-select')[0];
+
   let circle = "<img src=\"Assets/circle.png\" class=\"piece circle\">"
   let x_mark = "<img src=\"Assets/image.png\" class=\"piece x_mark\">"
   // let circle = "<img src=\"http://s12.postimg.org/r0p6cequ1/circle.png\" class=\"piece circle\">"
   // let x_mark = "<img src=\"http://s12.postimg.org/lb8xs3knt/image.png\" class=\"piece x_mark\">"
-
-  var user_piece = circle;
-  var ai_piece = x_mark;
-
   var user_last_cell;
+  var user_piece;
+  var ai_piece;
 
-  ai_move();
-
-  Array.prototype.forEach.call(cell_set, (cell) => {
-    cell.addEventListener('click', () => {
-      if(is_ocupied(cell))
-        console.log("illegal move");
-      else {
-        user_takes(cell);
-        if(check_winner(user_last_cell) == 'not_done'){
-          ai_move();
-        }
-      }
-    })
-  })
+  x_select.addEventListener('click', () => {
+    user_piece = x_mark;
+    ai_piece = circle;
+    hide(document.getElementById('piece-select'));
+    start_game();
+  });
+  circle_select.addEventListener('click', () => {
+    user_piece = circle;
+    ai_piece = x_mark;
+    hide(document.getElementById('piece-select'));
+    start_game();
+  });
 
   function get_x(cell){ return cell.id.split(",")[0]; }
   function get_y(cell){ return cell.id.split(",")[1]; }
@@ -33,12 +33,51 @@ window.addEventListener('load', () => {
   function is_user_ocupied(cell){ return cell.className.split(" ").indexOf("user_ocupied") != -1; }
   function is_ai_ocupied(cell){ return cell.className.split(" ").indexOf("ai_ocupied") != -1; }
 
+  function start_game(){
+    ai_move();
+    Array.prototype.forEach.call(cell_set, (cell) => {
+      cell.addEventListener('click', on_cell_click);
+    })
+  }
+
+  function on_cell_click(e){
+    if(is_ocupied(e.target))
+      console.log("illegal move");
+    else {
+      user_takes(e.target);
+      if(check_winner(user_last_cell) == 'not_done'){
+        ai_move();
+      }
+    }
+  }
+
+  function hide(element){
+    element.className += ' hidden';
+    Array.prototype.slice.call(element.children).forEach((child) => {
+      hide(child);
+    });
+  }
+
+  function show(element){
+    element.classList.remove('hidden');
+    Array.prototype.slice.call(element.children).forEach((child) => {
+      show(child);
+    });
+  }
+
   function reset(){
     Array.prototype.forEach.call(cell_set, (cell) => {
       cell.className = "cell flex flex-1 flex-center flex-middle pointer";
       cell.innerHTML = "";
-    })
-    ai_move();
+    });
+    stop_game();
+    show(document.getElementById('piece-select'));
+  }
+
+  function stop_game(){
+    Array.prototype.forEach.call(cell_set, (cell) => {
+      cell.removeEventListener('click', on_cell_click);
+    });
   }
 
   function user_takes(cell){

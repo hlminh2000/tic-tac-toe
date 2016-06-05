@@ -42,6 +42,8 @@ $flex_value:
 .flex-justify-end{ justify-content: flex-end; }
 
 .pointer{ cursor: pointer; }
+
+.hidden{ display: none; }
 // -----------------------
 
 
@@ -63,11 +65,10 @@ body{
 
 .piece-select{
   $piece-select_width:700px;
-  $piece-select_height:200px;
+  $piece-select_height:250px;
   text-align: center;
   font-size: 2em;
   position: fixed;
-  padding: 20px;
   color: white;
   width: $piece-select_width;
   height: $piece-select_height;
@@ -77,6 +78,10 @@ body{
   margin-top: -$piece-select_height/2;
   background: rgba(0,0,0,0.8);
   z-index: 10;
+  .piece-select-title{
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
 }
 
 .board{

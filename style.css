@@ -47,6 +47,9 @@
 .pointer {
   cursor: pointer; }
 
+.hidden {
+  display: none; }
+
 html {
   height: 100%;
   width: 100%; }
@@ -64,16 +67,18 @@ body {
   text-align: center;
   font-size: 2em;
   position: fixed;
-  padding: 20px;
   color: white;
   width: 700px;
-  height: 200px;
+  height: 250px;
   top: 50%;
   left: 50%;
   margin-left: -350px;
-  margin-top: -100px;
+  margin-top: -125px;
   background: rgba(0, 0, 0, 0.8);
   z-index: 10; }
+  .piece-select .piece-select-title {
+    margin-top: 25px;
+    margin-bottom: 25px; }
 
 .board {
   position: relative;
