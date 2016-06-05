@@ -60,6 +60,25 @@ body{
   position: relative;
 }
 
+
+.piece-select{
+  $piece-select_width:700px;
+  $piece-select_height:200px;
+  text-align: center;
+  font-size: 2em;
+  position: fixed;
+  padding: 20px;
+  color: white;
+  width: $piece-select_width;
+  height: $piece-select_height;
+  top:50%;
+  left: 50%;
+  margin-left: -$piece-select_width/2;
+  margin-top: -$piece-select_height/2;
+  background: rgba(0,0,0,0.8);
+  z-index: 10;
+}
+
 .board{
   position: relative;
   height: 500px;
